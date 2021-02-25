@@ -24,7 +24,7 @@ export const NasaList = () => {
         dispatch(
             queryIndex(query)
         );
-    }, []);
+    }, [dispatch, query]);
     // ----
 
     // ---- appel de la nouvelle liste avec la nouvelle query

@@ -14,7 +14,7 @@ export const NasaCaroussel = () => {
         dispatch(
             querySlider()
         );
-    },[] );
+    },[dispatch] );
     // ----
 
     // ---- mise en place des images du slider
