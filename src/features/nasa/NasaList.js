@@ -1,31 +1,47 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import { useSelector } from "react-redux";
 import {useDispatch} from "react-redux";
-import {queryIndex, selectNasaFavoris, selectNasaInfos, stateQuery} from "./nasaSlice";
+import {
+    queryIndex,
+    selectNasaFavoris,
+    selectNasaQuery,
+    selectNasaResults,
+} from "./nasaSlice";
 import Pagination from "react-js-pagination";
 import {NasaInfo} from "./NasaInfo";
 
 export const NasaList = () => {
-    const photos = useSelector(selectNasaInfos)
+
+    // ---- récupération des photos, des favoris, du dispatch et des paramètres de la dernière requête
+    const photos = useSelector(selectNasaResults);
     let favoris = useSelector(selectNasaFavoris);
-    const dispatch = useDispatch()
-    const state = useSelector(stateQuery)
-    const [count, setCount] = useState(1)
+    const query = useSelector(selectNasaQuery);
+    const dispatch = useDispatch();
+    // ----
+
+    // ---- appelle pour remplir une première fois la liste
     useEffect(() => {
-        if (state === "idle"){
-            dispatch(
-                queryIndex(count)
-            )
-        }
-    })
-    const handlePageChange = (page) => {
         dispatch(
-            queryIndex(page)
-        )
-        setCount(page)
-    }
+            queryIndex(query)
+        );
+    }, []);
+    // ----
+
+    // ---- appel de la nouvelle liste avec la nouvelle query
+    const handlePageChange = (page) => {
+        const updateQuery = {
+            camera: query.camera,
+            rover: query.rover,
+            page:page
+        };
+        dispatch(
+            queryIndex(updateQuery)
+        );
+    };
+    // ----
+
     const listRender = (
-        <div className={"d-flex overflow-auto"}>
+        <div className={"d-flex overflow-auto mb-5"}>
             {
                 photos.map(photo => {
                     const isFavoris = favoris.map(item => item.id === photo.id).includes(true)
@@ -33,19 +49,19 @@ export const NasaList = () => {
                 } )
             }
         </div>
-    )
+    );
 
     return(
         <div className={"col-12 mt-3"}>
             <div className={"d-flex justify-content-center mt-3"}>
                 <Pagination
-                    itemClass="page-item "
-                    linkClass="page-link"
+                    itemClass="page-item"
+                    linkClass="page-link bg-dark text-white"
                     hideFirstLastPages
                     prevPageText='prev'
                     nextPageText='next'
-                    activePage={count}
-                    itemsCountPerPage={25}
+                    activePage={query.page}
+                    itemsCountPerPage={photos.length}
                     totalItemsCount={3000}
                     pageRangeDisplayed={5}
                     onChange={handlePageChange.bind(this)}

@@ -1,5 +1,15 @@
 // Override default variables before the import
-$body-bg: white;
+$body-bg: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Ssc2003-06c.jpg/1200px-Ssc2003-06c.jpg");
+
+body {
+  background-image: $body-bg;
+  object-fit: cover;
+}
+
+.img-carousel{
+  max-height: 300px;
+  object-fit: cover;
+}
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';

@@ -8,41 +8,50 @@ import {nasaFavoris, selectNasaFavoris} from "./nasaSlice";
 
 
 export const NasaInfo = (props) => {
+
+    // ---- rcupération de la liste des favoris et du dispatch
     const favoris = useSelector(selectNasaFavoris);
+    const dispatch = useDispatch();
+    // ----
 
-    const dispatch = useDispatch()
-    const [isFLip, setFlip] = useState(false)
-
-    const [icon, setIcon] = useState(IconRegular.faStar)
+    // ---- ajout du mouvement de la carte pour les informations
+    const [isFLip, setFlip] = useState(false);
     const handleFlip = () => {
-        setFlip(!isFLip)
+        setFlip(!isFLip);
+    };
+    // ----
 
-    }
+    // ---- ajoute de l'étoile si c'est un favoris
+    const [icon, setIcon] = useState(IconRegular.faStar);
     const handleStar = (photo) => {
         let newFavoris = favoris.map(favoris => favoris);
         if (icon === IconSolid.faStar){
-            setIcon(IconRegular.faStar)
-            newFavoris = favoris.filter(favori => favori.id !== photo.id)
+            setIcon(IconRegular.faStar);
+            newFavoris = favoris.filter(favori => favori.id !== photo.id);
         }else{
-            newFavoris.push(photo)
-            setIcon(IconSolid.faStar)
+            newFavoris.push(photo);
+            setIcon(IconSolid.faStar);
         }
         dispatch(
             nasaFavoris({
                 favoris:newFavoris
             })
-        )
-    }
+        );
+    };
+    // ----
+
+    // effectuer useEffect une seul fois grâce au []
     useEffect(() => {
         if (props.isFavoris !== true){
-            setIcon(IconRegular.faStar)
+            setIcon(IconRegular.faStar);
         }else{
-            setIcon(IconSolid.faStar)
+            setIcon(IconSolid.faStar);
         }
-    },[])
+    },[]);
+    // ----
 
     return(
-        <div className="col-12 col-md-4">
+        <div className="col-12 col-md-4 mt-3">
             <ReactCardFlip isFlipped={isFLip} flipDirection="vertical" containerStyle={{height:"100%"}}>
                 <div className="card h-100">
                     <img onClick={()=> handleFlip()} src={props.photo?.img_src} className="card-img-top" alt={props.photo?.camera.name}/>
@@ -51,7 +60,7 @@ export const NasaInfo = (props) => {
                             <h5 className="card-title">{props.photo?.camera.name}</h5>
                             <p>{props.photo?.camera.full_name}</p>
                             <div onClick={()=>handleStar(props.photo)}>
-                                <FontAwesomeIcon icon={icon} style={{color:"blue"}}/>
+                                <FontAwesomeIcon icon={icon} className={"text-dark"}/>
                             </div>
                         </div>
                     </div>

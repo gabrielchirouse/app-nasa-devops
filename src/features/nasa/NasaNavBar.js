@@ -9,14 +9,11 @@ import {
 import {NasaList} from "./NasaList";
 import {NasaCaroussel} from "./NasaCaroussel";
 import {NasaFavoris} from "./NasaFavoris";
-import $ from "jquery";
+import {NasaSearch} from "./NasaSearch";
+import {NasaHistorique} from "./NasaHistorique";
 
 export const NasaNavBar = () => {
 
-    const handleActive = (item) => {
-        console.log(item.toString()+"A")
-        $(".nav-item").removeClass("active")
-    }
     return (
         <Router>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -29,10 +26,13 @@ export const NasaNavBar = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/" onClick={() => handleActive.bind(this)}>Home</Link>
+                                <Link className="nav-link" to="/" >Home</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/favoris">Favoris</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/historique">Historique</Link>
                             </li>
                         </ul>
                     </div>
@@ -43,10 +43,14 @@ export const NasaNavBar = () => {
                     <Switch>
                         <Route exact path="/">
                             <NasaCaroussel />
+                            <NasaSearch />
                             <NasaList/>
                         </Route>
                         <Route exact path="/favoris">
                             <NasaFavoris />
+                        </Route>
+                        <Route exact path="/historique">
+                            <NasaHistorique />
                         </Route>
                         <Route path="*">
                             <NoMatch/>
@@ -58,19 +62,20 @@ export const NasaNavBar = () => {
     )
 }
 
+// ---- route 404
 const NoMatch = () => {
     let location = useLocation();
     return (
         <div className={"col-12"}>
             <div className="d-flex text-center align-items-center justify-content-center">
-                <img width="50" height="50" src="https://img.icons8.com/ios/452/alien.png" alt={"Alien.png"}/>
-                <h3>
+                <h3 className={'text-white'}>
                     Oups Error 404 no match for <code>{location.pathname}</code>.
                 </h3>
             </div>
             <div className="text-center">
-                <img width="150" height="200" src="https://c.tenor.com/O7kYXW3ag-oAAAAj/coffee-lover-hot-coffee.gif" alt={"coffee.png"}/>
+                <img src="/alien-vert.jpg" alt={"coffee.png"}/>
             </div>
         </div>
     );
 }
+// ----

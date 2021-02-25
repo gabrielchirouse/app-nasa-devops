@@ -6,11 +6,18 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import * as IconSolid from "@fortawesome/fontawesome-free-solid";
 
 export const NasaFavoris = () => {
-    let favoris = useSelector(selectNasaFavoris)
-    const [value, setValue] = useState("")
+
+    // ---- récupération des favoris
+    let favoris = useSelector(selectNasaFavoris);
+    // ----
+
+    // ---- gestion du filtrage des favoris
+    const [value, setValue] = useState("");
     const handleFiltre = (e) => {
-        setValue(e.target.value)
-    }
+        setValue(e.target.value);
+    };
+    // ----
+
     return (
             <div className={"col-12 mt-3"}>
                 <div className="input-group mb-3">
@@ -25,7 +32,7 @@ export const NasaFavoris = () => {
                             favori.rover.name.toUpperCase().includes(value.toUpperCase()) ||
                             favori.camera.name.toUpperCase().includes(value.toUpperCase()))
                             .map(favori => {
-                            return <NasaInfo photo={favori} isFavoris={true} key={favori.id} class={"mt-3"}/>
+                            return <NasaInfo photo={favori} isFavoris={true} key={favori.id} class={"mt-3"}/>;
                         } )
                     }
                 </div>
