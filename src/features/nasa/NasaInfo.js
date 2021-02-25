@@ -54,7 +54,7 @@ export const NasaInfo = (props) => {
         <div className="col-12 col-md-4 mt-3">
             <ReactCardFlip isFlipped={isFLip} flipDirection="vertical" containerStyle={{height:"100%"}}>
                 <div className="card h-100">
-                    <img onClick={()=> handleFlip()} src={props.photo?.img_src} className="card-img-top" alt={props.photo?.camera.name}/>
+                    <img onClick={()=> handleFlip()} src={props.photo?.img_src} className="card-img-top" alt={props.photo?.img_src}/>
                     <div className="card-body d-flex flex-column justify-content-end">
                         <div>
                             <h5 className="card-title">{props.photo?.camera.name}</h5>

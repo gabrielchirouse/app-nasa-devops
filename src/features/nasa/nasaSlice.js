@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-import moment from 'moment'
+//import moment from 'moment'
 import {client} from "../../api/client";
 
 
@@ -21,7 +21,7 @@ const initialState = {
 // ---- slider en fonction de la date d'aujourd'hui
 export const querySlider = createAsyncThunk('documents/querySlider',
 async () => {
-    const date = Date();
+    //const date = Date();
     const response = await client.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=qrFZwKfJVze4cr7BlBaPyp85UwTan2HJRflJP0EK&earth_date=2020-01-01');
     //const response = await client.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=qrFZwKfJVze4cr7BlBaPyp85UwTan2HJRflJP0EK&earth_date='+moment(date).format('YYYY-MM-DD'));
     return response.photos;
