@@ -11,7 +11,7 @@ on:
 env:
   NODE_VERSION: '14.x'
 jobs:
-  build-and-deploy:
+  lint-and-test:
     name: Lint and test
     runs-on: ubuntu-latest
     environment: production
