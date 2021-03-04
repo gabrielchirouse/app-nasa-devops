@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import store from './app/store';
 import {NasaCaroussel} from "./features/nasa/Caroussel/NasaCaroussel";
-import * as IconSolid from "@fortawesome/fontawesome-free-solid";
 import {NasaFavoris} from "./features/nasa/Favoris/NasaFavoris";
 import {NasaHistorique} from "./features/nasa/Historique/NasaHistorique";
 import {NasaInfo} from "./features/nasa/Info/NasaInfo";
