@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {nasaHistorique,queryIndex, selectNasaQuery} from "./nasaSlice";
+import {nasaHistorique,queryIndex, selectNasaQuery} from "../Slice/nasaSlice";
 
 
 export const NasaSearch = () => {

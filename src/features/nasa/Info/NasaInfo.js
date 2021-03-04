@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import * as IconRegular from "@fortawesome/free-regular-svg-icons";
 import * as IconSolid from "@fortawesome/fontawesome-free-solid";
 import {useDispatch, useSelector} from "react-redux";
-import {nasaFavoris, selectNasaFavoris} from "./nasaSlice";
+import {nasaFavoris, selectNasaFavoris} from "../Slice/nasaSlice";
 
 
 export const NasaInfo = (props) => {

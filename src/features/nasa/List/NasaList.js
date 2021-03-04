@@ -6,9 +6,9 @@ import {
     selectNasaFavoris,
     selectNasaQuery,
     selectNasaResults,
-} from "./nasaSlice";
+} from "../Slice/nasaSlice";
 import Pagination from "react-js-pagination";
-import {NasaInfo} from "./NasaInfo";
+import {NasaInfo} from "../Info/NasaInfo";
 
 export const NasaList = () => {
 

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import {NasaInfo} from "./NasaInfo";
+import {NasaInfo} from "../Info/NasaInfo";
 import {useSelector} from "react-redux";
-import {selectNasaFavoris} from "./nasaSlice";
+import {selectNasaFavoris} from "../Slice/nasaSlice";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import * as IconSolid from "@fortawesome/fontawesome-free-solid";
 

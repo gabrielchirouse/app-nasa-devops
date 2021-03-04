@@ -6,11 +6,11 @@ import {
     useLocation,
     Link
 } from "react-router-dom";
-import {NasaList} from "./NasaList";
-import {NasaCaroussel} from "./NasaCaroussel";
-import {NasaFavoris} from "./NasaFavoris";
-import {NasaSearch} from "./NasaSearch";
-import {NasaHistorique} from "./NasaHistorique";
+import {NasaList} from "../List/NasaList";
+import {NasaCaroussel} from "../Caroussel/NasaCaroussel";
+import {NasaFavoris} from "../Favoris/NasaFavoris";
+import {NasaSearch} from "../Search/NasaSearch";
+import {NasaHistorique} from "../Historique/NasaHistorique";
 
 export const NasaNavBar = () => {
 

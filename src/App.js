@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import {NasaNavBar} from "./features/nasa/NasaNavBar";
+import {NasaNavBar} from "./features/nasa/NavBar/NasaNavBar";
 
 function App() {
   return (

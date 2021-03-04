@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 //import moment from 'moment'
-import {client} from "../../api/client";
+import {client} from "../../../api/client";
 
 
 // ---- variable initiale du slice

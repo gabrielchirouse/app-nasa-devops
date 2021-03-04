@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {querySlider, selectNasaSlider} from "./nasaSlice";
+import {querySlider, selectNasaSlider} from "../Slice/nasaSlice";
 import {useDispatch, useSelector} from "react-redux";
 
 export const NasaCaroussel = () => {

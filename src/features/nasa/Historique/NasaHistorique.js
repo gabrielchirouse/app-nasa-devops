@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import {selectNasaHistorique} from "./nasaSlice";
+import {selectNasaHistorique} from "../Slice/nasaSlice";
 
 export const NasaHistorique = () => {
 

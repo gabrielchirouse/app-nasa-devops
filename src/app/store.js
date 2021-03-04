@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import nasaReducer from '../features/nasa/nasaSlice';
+import nasaReducer from '../features/nasa/Slice/nasaSlice';
 
 export default configureStore({
   reducer: {
